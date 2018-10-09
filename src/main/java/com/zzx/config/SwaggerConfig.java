@@ -15,15 +15,17 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * SwaggerConfig
+ * 访问地址：http://localhost:8082/swagger-ui.html
  */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-    public static final String VERSION = "0.1.0 a";
+
+    public static final String VERSION = "0.1.0";
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Swagger Server Rest API Document")
+                .title("Swagger 测试")
                 .description("***.***.***")
                 .termsOfServiceUrl("")
                 .version(VERSION)
