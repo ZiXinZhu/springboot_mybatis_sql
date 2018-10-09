@@ -13,6 +13,7 @@ import java.util.List;
 /**
  * Created by Mr.John on 2018/9/18 9:43.
  **/
+
 @Mapper
 public interface GirlDao {
 
