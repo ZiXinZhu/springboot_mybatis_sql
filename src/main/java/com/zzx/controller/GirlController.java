@@ -1,5 +1,6 @@
 package com.zzx.controller;
 
+import com.zzx.Emali.SendEmail;
 import com.zzx.dao.GirlDao;
 import com.zzx.entity.GirlEntity;
 import com.zzx.entity.HeightEntity;
@@ -8,8 +9,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,6 +27,12 @@ public class GirlController {
     @Autowired
     private GirlDao userDao;
 
+    @Autowired
+    private JavaMailSender sender;
+    @RequestMapping("/send")
+    public void send() {
+        new Thread(new SendEmail(sender,"1101648204@qq.com","863486267@qq.com","dadydatbkrmwhgij")).start();
+    }
     @ApiOperation("用户注册接口")
     @PostMapping("/set")
     public String set(GirlEntity userEntity){
